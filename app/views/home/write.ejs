@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>NDIPSL</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+        <style>
+            .bt_wrap .btn {
+                display: inline-block;
+                padding: 10px 5px;
+                margin: 5px;
+                font-size: 16px;
+                color: #fff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        
+            .bt_wrap .btn:hover {
+                background-color: #0056b3;
+            }
+        
+            .bt_wrap .btn.on {
+                display: inline-block;
+                padding: 10px 25px;
+                margin: 5px;
+                font-size: 16px;
+                color: #fff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        
+            .bt_wrap .btn.on:hover {
+                display: inline-block;
+                padding: 10px 25px;
+                margin: 5px;
+                font-size: 16px;
+                color: #fff;
+                background-color: #0056b3;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto logo text-center">
+                <a href="/" action="/home">
+                    <img src="/images/logo.png" class="logo" alt="Logo">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr style="width: 100%;">
+
+    <div class="section_board_write_title">
+        <div class="text-default-head" style="margin: auto"> 게시글 작성 </div>
+    </div>
+
+    <div class="section_board_write">
+        <div class="board_wrap">
+            <div class="board_write">
+                <form action="/createNotice" method="post">
+                    <div class="title">
+                        <div class="col-md-2">
+                            <div class="text_board_write"> 제목 </div>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" id="noticeTitle" name="noticeTitle" style="font-size: 17px;" placeholder="제목 입력">
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="col-md-2">
+                            <div class="text_board_write"> 게시판 </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="board_select">
+                                <select name="board">
+                                    <option value="board1">공지 사항</option>
+                                    <option value="board2">학술 정보</option>
+                                    <option value="board3">자료실</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="text_board_write"> 글쓴이 </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="author">
+                                <input type="text" id="writer" name="writer" style="font-size: 17px;" placeholder="글쓴이 입력">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont">
+                        <textarea name="content" placeholder="내용 입력"></textarea>
+                    </div>
+                    <div class="bt_wrap">
+                        <button type="submit" class="btn on">등록</button>
+                        <a href="/" class="btn">취소</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer section start -->
+    <div class="section-footer">
+        <div class="container">
+            <div class="row">
+                <div class="logo-footer"><img src="/images/logo-grayscale.png"></div>
+                <div class="v-line-footer"></div>
+                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp;
+                    &nbsp;
+                    <a class="text-footer" href="/login" action="/login"> [관리자 로그인] </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer section end -->
+</body>
+
+</html>
