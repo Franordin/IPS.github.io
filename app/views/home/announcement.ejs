@@ -85,6 +85,10 @@
     <div class="section-default">
         <div class="container">
             <div class="row">
+                <% if (userId) { %>
+                    <button class="btn-login" onclick="window.location.href='/write';" style="width: 80px; background-color: #4f99e5;">글 작성</button>
+                <% } %>
+
                 <table class="table table-hover">
                     <colgroup>
                         <col width="11%" />
@@ -106,7 +110,7 @@
                         <% for (notice of notices) { %>
                         <tr>
                             <td scope="col" class="text-center"><%= notice.id %></td>
-                            <td scope="col"><%= notice.noticeTitle %></td>
+                            <td scope="col"><%= notice.title %></td>
                             <td scope="col" class="text-center"><%= notice.writer %></td>
                             <td scope="col" class="text-center datetime"><%= notice.createdAt %></td>
                             <td scope="col" class="text-center"><%= notice.views %></td>
@@ -114,13 +118,14 @@
                         <% } %>
                     </tbody>
                 </table>
+                
                 <div class="section-divide-line">
-                    <div class="container">
-                        <hr style="width: 100%;">
+                    <div class="container" style="padding-top: 10px;">
+                        <hr style="width: 100%; border: 0; border-top: 2px solid #4f99e5;">
                     </div>
                 </div>
 
-                <div class="col-lg-6 offset-lg-3 py-5 d-flex">
+                <div class="col-lg-6 offset-lg-3 py-4 d-flex">
                     <ul class="pagination mx-auto">
                         <li class="page-item disabled">
                             <a class="page-link" href="#" aria-label="Previous">
@@ -147,20 +152,20 @@
     </div>
     <!-- announcement section end -->
 
-    <form action="/createNotice" method="post">
-        <input type="text" id="noticeTitle" name="noticeTitle"><br><br>
-        <input type="text" id="writer" name="writer"><br><br>
-        <input type="submit" value="Submit">
-    </form>
-
     <!-- footer section start -->
     <div class="section-footer">
         <div class="container">
             <div class="row">
-                <div class="logo-footer"><img src="/images/logo-grayscale.png"></div>
+                <div class="logo-footer"><img src="images/logo-grayscale.png"></div>
                 <div class="v-line-footer"></div>
-                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp; &nbsp;
-                    <a class="text-footer" href="/login" action="/login"> [관리자 로그인] </a>
+                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp;
+                    &nbsp;
+                    <% if (userId) { %>
+                        <a class="text-footer" href="/logout"> [로그아웃] </a>
+                        <!-- <%= userId %> -->
+                    <% } else { %>
+                        <a class="text-footer" href="/login"> [관리자 로그인] </a>
+                    <% } %>
                 </div>
             </div>
         </div>

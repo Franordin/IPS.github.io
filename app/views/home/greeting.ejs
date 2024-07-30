@@ -86,7 +86,7 @@
     <div class="section-default">
         <div class="container">
             <h1 class="text-default-head-center" style="padding-bottom: 50px;"> Corporate Identity </h1>
-            <div class="image-default"><img src="/images/ci.png"></div>
+            <div class="image-default"><img src="/images/ci3.png"></div>
         </div>
     </div>
     <!-- ci section end -->
@@ -200,11 +200,16 @@
     <div class="section-footer">
         <div class="container">
             <div class="row">
-                <div class="logo-footer"><img src="/images/logo-grayscale.png"></div>
+                <div class="logo-footer"><img src="images/logo-grayscale.png"></div>
                 <div class="v-line-footer"></div>
                 <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp;
                     &nbsp;
-                    <a class="text-footer" href="/login" action="/login"> [관리자 로그인] </a>
+                    <% if (userId) { %>
+                        <a class="text-footer" href="/logout"> [로그아웃] </a>
+                        <!-- <%= userId %> -->
+                        <% } else { %>
+                            <a class="text-footer" href="/login"> [관리자 로그인] </a>
+                            <% } %>
                 </div>
             </div>
         </div>

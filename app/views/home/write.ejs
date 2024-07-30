@@ -29,56 +29,56 @@
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
         media="screen">
-        <style>
-            .bt_wrap .btn {
-                display: inline-block;
-                padding: 10px 5px;
-                margin: 5px;
-                font-size: 16px;
-                color: #fff;
-                background-color: #007bff;
-                border: none;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-        
-            .bt_wrap .btn:hover {
-                background-color: #0056b3;
-            }
-        
-            .bt_wrap .btn.on {
-                display: inline-block;
-                padding: 10px 25px;
-                margin: 5px;
-                font-size: 16px;
-                color: #fff;
-                background-color: #007bff;
-                border: none;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-        
-            .bt_wrap .btn.on:hover {
-                display: inline-block;
-                padding: 10px 25px;
-                margin: 5px;
-                font-size: 16px;
-                color: #fff;
-                background-color: #0056b3;
-                border: none;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-        </style>
+    <style>
+        .bt_wrap .btn {
+            display: inline-block;
+            padding: 10px 5px;
+            margin: 5px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .bt_wrap .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .bt_wrap .btn.on {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 5px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .bt_wrap .btn.on:hover {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 5px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #0056b3;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
 </head>
 
 <body>
@@ -94,20 +94,19 @@
 
     <hr style="width: 100%;">
 
-    <div class="section_board_write_title">
+    <!-- <div class="section_board_write_title">
         <div class="text-default-head" style="margin: auto"> 게시글 작성 </div>
-    </div>
-
-    <div class="section_board_write">
-        <div class="board_wrap">
+    </div> -->
+    <div class="section_board_write_edit">
+        <div class="board_editor">
             <div class="board_write">
-                <form action="/createNotice" method="post">
+                <form action="/createAdminPost" method="post">
                     <div class="title">
                         <div class="col-md-2">
                             <div class="text_board_write"> 제목 </div>
                         </div>
                         <div class="col-md-10">
-                            <input type="text" id="noticeTitle" name="noticeTitle" style="font-size: 17px;" placeholder="제목 입력">
+                            <input type="text" id="title" name="title" style="font-size: 17px;" placeholder="제목 입력">
                         </div>
                     </div>
                     <div class="info">
@@ -117,8 +116,8 @@
                         <div class="col-md-5">
                             <div class="board_select">
                                 <select name="board">
-                                    <option value="board1">공지 사항</option>
-                                    <option value="board2">학술 정보</option>
+                                    <option value="board1">학술 정보</option>
+                                    <option value="board2">공지 사항</option>
                                     <option value="board3">자료실</option>
                                 </select>
                             </div>
@@ -128,7 +127,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="author">
-                                <input type="text" id="writer" name="writer" style="font-size: 17px;" placeholder="글쓴이 입력">
+                                <input type="text" id="writer" name="writer" style="font-size: 17px;"
+                                    placeholder="글쓴이 입력">
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="bt_wrap">
                         <button type="submit" class="btn on">등록</button>
-                        <a href="/" class="btn">취소</a>
+                        <a href="/" class="btn" onclick="return confirmExit()">취소</a>
                     </div>
                 </form>
             </div>
@@ -148,16 +148,27 @@
     <div class="section-footer">
         <div class="container">
             <div class="row">
-                <div class="logo-footer"><img src="/images/logo-grayscale.png"></div>
+                <div class="logo-footer"><img src="images/logo-grayscale.png"></div>
                 <div class="v-line-footer"></div>
-                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp;
-                    &nbsp;
-                    <a class="text-footer" href="/login" action="/login"> [관리자 로그인] </a>
+                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp; &nbsp;
+                    <% if (userId) { %>
+                        <a class="text-footer" href="/logout"> [로그아웃] </a>
+                        <!-- <%= userId %> -->
+                        <% } else { %>
+                            <a class="text-footer" href="/login"> [관리자 로그인] </a>
+                            <% } %>
                 </div>
             </div>
         </div>
     </div>
     <!-- footer section end -->
+
+    <script>
+        function confirmExit() {
+            return confirm("진행 중이던 내용이 삭제됩니다. 진행하시겠습니까?");
+        }
+    </script>
+
 </body>
 
 </html>
