@@ -13,7 +13,7 @@ const Notices = sequelize.define(
     'Notices',
     {
         // Model attributes are defined here
-        noticeTitle: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -39,7 +39,7 @@ const Documents = sequelize.define(
     'Documents',
     {
         // Model attributes are defined here
-        documentTitle: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -64,6 +64,8 @@ const Documents = sequelize.define(
 const show = {
     home: async (req, res) => {
         try {
+            // res.locals.userId = req.session.userId;
+
             // Fetch all records with IDs from 1 to 5
             const notices = await Notices.findAll({
                 where: {
@@ -88,6 +90,15 @@ const show = {
     },
     login: (req, res) => {
         res.render("home/login");
+    },
+    logout: async (req, res) => {
+        req.session.destroy((err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send("Logout failed.");
+            }
+            res.redirect('/'); // 로그아웃 후 메인 페이지로 리디렉션
+        });
     },
     greeting: (req, res) => {
         res.render("home/greeting");
@@ -126,34 +137,44 @@ const show = {
     write: (req, res) => {
         res.render("home/write");
     },
+    viewPost: (req, res) => {
+        res.render("home/post");
+    },
 };
 
 const process = {
     login: (req, res) => {
         const user = new User(req.body);
         const response = user.login();
-        console.log(response);
-        
-        return res.json(response);
-    },
-    createNotice: async (req, res) => {
-        const { noticeTitle, writer } = req.body;
-        try {
-            await Notices.create({ noticeTitle: noticeTitle, writer: writer });
-            res.redirect('/announcement');
-        } catch (error) {
-            console.error(error);
-            res.status(500).send("Failed to create notice");
+
+        if (response.success) {
+            req.session.userId = req.body.id; // 세션에 사용자 ID 저장
+            return res.json({ success: true }); // 클라이언트에게 성공 응답 전송
+        } else {
+            return res.json(response); // 클라이언트에게 실패 응답 전송
         }
     },
-    createDocument: async (req, res) => {
-        const { documentTitle, writer } = req.body;
+    createAdminPost: async (req, res) => {
+        const { title, writer, board } = req.body;
         try {
-            await Documents.create({ documentTitle: documentTitle, writer: writer });
-            res.redirect('/docs');
+            if (board === "board1") {
+                // 공지 사항 게시판에 게시물 생성
+                await Notices.create({ title: title, writer: writer});
+                res.redirect('/announcement');
+            } else if (board === "board2") {
+                // 학술 정보 게시판에 게시물 생성
+                await Notices.create({ title: title, writer: writer});
+                res.redirect('/announcement'); // 실제 학술 정보 게시판 페이지로 리다이렉트
+            } else if (board === "board3") {
+                // 자료실 게시판에 게시물 생성
+                await Documents.create({ title: title, writer: writer});
+                res.redirect('/docs');
+            } else {
+                res.status(400).send("Invalid board selection");
+            }
         } catch (error) {
             console.error(error);
-            res.status(500).send("Failed to create document");
+            res.status(500).send("Failed to create post");
         }
     },
 };

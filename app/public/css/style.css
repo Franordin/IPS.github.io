@@ -2,13 +2,6 @@
 
 /*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
 
-/* @import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
-@font-face {
-font-family: "Righteous";
-src: url("../fonts/Righteous-Regular.ttf");
-src: url("../fonts/Lato-Regular.ttf");
-} */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 /* 유니크한 클래스 이름과 폰트 가중치 설정 */
@@ -181,23 +174,6 @@ button {
     padding-bottom: 0px;
 }
 
-/* .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    margin-right: auto;
-    margin-left: auto;
-} */
-
-/* .bg-light {
-    background-color: #fefeff !important;
-    box-shadow: 0px 0px 10px 0px;
-    border-top: 45px solid #333a44;
-} */
-
-
 /* LMS start */
 
 /* Logo Related */
@@ -241,8 +217,8 @@ button {
 .navbar-expand-lg .nav-link {
     padding-right: 70px !important;
     padding-left: 70px !important;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 30px;
+    /* font-weight: bold; */
 }
 .navbar-light .navbar-nav .nav-link {
     color: #24292f;
@@ -303,7 +279,7 @@ button {
 .text_main_banner {
     width: 200%;
     float: center;
-    font-size: 60px;
+    font-size: 64px;
     color: #ffffff;
     font-weight: 600;
     text-transform: uppercase;
@@ -312,10 +288,29 @@ button {
     align-items: center;
     text-shadow: 0px 0px 10px darkblue;
 }
+@font-face {
+    font-family: 'ChosunGs';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.text_main_banner_kanji {
+    font-family: 'ChosunGs';
+    width: 200%;
+    float: center;
+    font-size: 64px;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 50px;
+    padding-top: 100px;
+    align-items: center;
+    text-shadow: 0px 0px 10px rgb(256, 0, 0);
+}
 .text_main_banner_sub {
     width: 100%;
     float: left;
-    font-size: 30px;
+    font-size: 34px;
     color: #000000;
     font-weight: 500;
     margin-left: 0px;
@@ -423,8 +418,10 @@ figcaption {
 .section-main-banner {
     width: 100%;
     float: center;
-    height: auto;
-    padding-bottom: 256px;
+    justify-content: center;
+    align-items: center;
+    height: min-content;
+    padding-bottom: 250px; 
     background-size: cover;
 }
 .section_main_notice {
@@ -461,6 +458,10 @@ figcaption {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+.section_board_write_edit {
+    width: 80vw;
+    margin: 100px auto;
+}
 .section-divide-line {
     width: 100%;
     float: left;
@@ -468,19 +469,6 @@ figcaption {
     height: auto;
     padding-top: 5px;
     padding-bottom: 5px;
-}
-.section_board_write_title {
-    width: 1200px;
-    margin: auto;
-    padding-top: 100px;
-    padding-bottom: 120px;
-}
-.section_board_write {
-    width: 100%;
-    float: left;
-    background-color: #ffffff;
-    height: auto;
-    padding-bottom: 120px;
 }
 .section-footer {
     width: 100%;
@@ -628,9 +616,7 @@ figcaption {
 }
 
 /* board */
-.board_wrap {
-    width: 1200px;
-    margin: auto;
+.board_editor {
     border-top: 2px solid #000;
 }
 
@@ -671,7 +657,7 @@ figcaption {
     font-weight: bold;
 }
 
-
+/* board related */
 .bt_wrap {
     margin-top: 30px;
     text-align: center;
@@ -760,3 +746,36 @@ figcaption {
     resize: vertical;
     font-size: 18px;
 }
+
+
+.board_title {
+    margin-bottom: 30px;
+}
+
+.board_title strong {
+    font-size: 3rem;
+}
+
+.board_title p {
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+
+.board_view .info dl {
+    width: 50%;
+    padding: 0;
+}
+
+.board_view .info dl:nth-child(-n+2) {
+    margin-bottom: 5px;
+}
+
+.board_view .info dl::before {
+    display: none;
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd {
+    font-size: 1.2rem;
+}
+
