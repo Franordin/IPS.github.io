@@ -247,8 +247,9 @@ button {
     float: left;
     font-size: 40px;
     color: #000000;
-    font-weight: 500;
+    font-weight: bold;
     text-align: center;
+    padding-bottom: 70px;
 }
 .text-default-head-sub {
     width: 100%;
@@ -324,12 +325,12 @@ button {
     font-weight: 600;
     text-transform: uppercase;
     text-align: left;
-    padding-top: 210px;
+    padding-top: 140px;
     padding-left: 25px;
 }
 @media screen and (max-width: 993px) {
     .text-greeting-director-name{
-       padding-top: 0px;
+       padding-top: 30px;
     }
 }
 .text-greeting-director-description {
@@ -347,7 +348,7 @@ button {
     color: #ffffff;
     font-weight: 500;
     text-align: center;
-    margin-top: 80px;
+    /* margin-top: 80px; */
     text-shadow: 0px 0px 10px darkblue;
 }
 .text_board_write {
@@ -418,25 +419,23 @@ figcaption {
 .section-main-banner {
     width: 100%;
     float: center;
-    justify-content: center;
-    align-items: center;
-    height: min-content;
-    padding-bottom: 250px; 
-    background-size: cover;
+    padding-bottom: 250px;
 }
 .section_main_notice {
     width: 100%;
     float: left;
     background-color: #ffffff;
     height: auto;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color:rgb(250, 250, 250);
 }
 .section-default-banner {
     width: 100%;
     height: 500px;
     padding-top: 128px;
     padding-bottom: 128px;
+    align-content: center;
     background-size: cover;
 }
 .section-default {
