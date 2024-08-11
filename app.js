@@ -29,6 +29,5 @@ app.use((req, res, next) => {
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 app.use("/", home);
-app.use 
 
 module.exports = app;
