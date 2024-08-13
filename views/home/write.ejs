@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col mx-auto logo text-center">
                 <a href="/" action="/home">
-                    <img src="/images/logo.png" class="logo" alt="Logo">
+                    <img src="/images/logo.png" class="logo" onclick="return confirmExit()" alt="Logo">
                 </a>
             </div>
         </div>
@@ -94,9 +94,10 @@
 
     <hr style="width: 100%;">
 
-    <!-- <div class="section_board_write_title">
+    <div class="section_board_write_title" style="padding-left: 10%; padding-top: 100px; padding-bottom: 15px;">
         <div class="text-default-head" style="margin: auto"> 게시글 작성 </div>
-    </div> -->
+    </div>
+
     <div class="section_board_write_edit">
         <div class="board_editor">
             <div class="board_write">
@@ -148,16 +149,9 @@
     <div class="section-footer">
         <div class="container">
             <div class="row">
-                <div class="logo-footer"><img src="images/logo-grayscale.png"></div>
+                <div class="logo-footer"><img src="images/logo-grayscale.png" alt="logo-grayscale"></div>
                 <div class="v-line-footer"></div>
-                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp; &nbsp;
-                    <% if (userId) { %>
-                        <a class="text-footer" href="/logout"> [로그아웃] </a>
-                        <!-- <%= userId %> -->
-                        <% } else { %>
-                            <a class="text-footer" href="/login"> [관리자 로그인] </a>
-                            <% } %>
-                </div>
+                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son </div>
             </div>
         </div>
     </div>

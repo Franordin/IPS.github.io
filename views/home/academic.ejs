@@ -32,6 +32,10 @@
 </head>
 
 <body>
+    <% if (userId) { %>
+        <h1 style="background-color: lightsalmon; text-align: center;"> <%= userId %> 으로 로그인 되었습니다. &nbsp; <a href="/logout"> [로그아웃] </a> </h1>
+    <% } %>
+
     <div class="container">
         <div class="row">
             <div class="col mx-auto logo text-center">
@@ -89,7 +93,7 @@
             <div class="row" style="padding-bottom: 35px;">
                 <div class="col">
                     <div class="card">
-                        <img src="/images/favicon.png" class="card-img-top" alt="...">
+                        <img src="/images/favicon.png" class="card-img-top" alt="card #1">
                         <div class="card-body">
                             <h5 class="card-title">Card test</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
@@ -99,7 +103,7 @@
                 </div>
                 <div class="col">
                     <div class="card">
-                        <img src="/images/favicon.png" class="card-img-top" alt="...">
+                        <img src="/images/favicon.png" class="card-img-top" alt="card #2">
                         <div class="card-body">
                             <h5 class="card-title">Card test</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
@@ -109,7 +113,7 @@
                 </div>
                 <div class="col">
                     <div class="card">
-                        <img src="/images/favicon.png" class="card-img-top" alt="...">
+                        <img src="/images/favicon.png" class="card-img-top" alt="card #3">
                         <div class="card-body">
                             <h5 class="card-title">Card test</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
@@ -121,7 +125,7 @@
             <div class="row">
                 <div class="col">
                     <div class="card">
-                        <img src="/images/favicon.png" class="card-img-top" alt="...">
+                        <img src="/images/favicon.png" class="card-img-top" alt="card #4">
                         <div class="card-body">
                             <h5 class="card-title">Card test</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
@@ -131,7 +135,7 @@
                 </div>
                 <div class="col">
                     <div class="card">
-                        <img src="/images/favicon.png" class="card-img-top" alt="...">
+                        <img src="/images/favicon.png" class="card-img-top" alt="card #5">
                         <div class="card-body">
                             <h5 class="card-title">Card test</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
@@ -141,7 +145,7 @@
                 </div>
                 <div class="col">
                     <div class="card">
-                        <img src="/images/favicon.png" class="card-img-top" alt="...">
+                        <img src="/images/favicon.png" class="card-img-top" alt="card #6">
                         <div class="card-body">
                             <h5 class="card-title">Card test</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
@@ -226,17 +230,15 @@
     <div class="section-footer">
         <div class="container">
             <div class="row">
-                <div class="logo-footer"><img src="images/logo-grayscale.png"></div>
+                <div class="logo-footer"><img src="images/logo-grayscale.png" alt="logo-grayscale"></div>
                 <div class="v-line-footer"></div>
-                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp;
-                    &nbsp;
-                    <% if (userId) { %>
-                        <a class="text-footer" href="/logout"> [로그아웃] </a>
-                        <!-- <%= userId %> -->
-                        <% } else { %>
-                            <a class="text-footer" href="/login"> [관리자 로그인] </a>
-                            <% } %>
-                </div>
+                <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son </div>
+                <% if (userId) { %>
+                    <button type="button" class="btn btn-secondary" style="margin-top: 10px; margin-left: 20px; height: 40px;" onclick="window.location.href='/logout';"> 로그아웃 </button>
+                    <!-- <%= userId %> -->
+                    <% } else { %>
+                        <button type="button" class="btn btn-secondary" style="margin-top: 10px; margin-left: 20px; height: 40px;" onclick="window.location.href='/login';"> 관리자 로그인 </button>
+                        <% } %>
             </div>
         </div>
     </div>
