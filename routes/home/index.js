@@ -19,10 +19,13 @@ router.get("/write", ctrl.show.write);
 router.get("/viewPost", ctrl.show.viewPost);
 
 router.get("/robots.txt", (req, res) => {
-    res.sendFile(path.join(__filename, "../../public/robots.txt")); // 파일 경로를 적절히 설정
+    res.sendFile(path.join(__filename, "../../public/robots.txt"));
 });
-router.get("/sitemap.xml", (req, res) => {
-    res.sendFile(path.join(__filename, "../../public/sitemap.xml")); // 파일 경로를 적절히 설정
+router.get("/sitemap_ips.xml", (req, res) => {
+    res.sendFile(path.join(__filename, "../../public/sitemap_ips.xml"));
+});
+router.get("/sitemap_kndipsl.xml", (req, res) => {
+    res.sendFile(path.join(__filename, "../../public//sitemap_kndipsl.xml"));
 });
 
 router.post("/login", ctrl.process.login);
