@@ -21,6 +21,9 @@ router.get("/viewPost", ctrl.show.viewPost);
 router.get("/robots.txt", (req, res) => {
     res.sendFile(path.join(__filename, "../../public/robots.txt")); // 파일 경로를 적절히 설정
 });
+router.get("/sitemap.xml", (req, res) => {
+    res.sendFile(path.join(__filename, "../../public/sitemap.xml")); // 파일 경로를 적절히 설정
+});
 
 router.post("/login", ctrl.process.login);
 router.post("/createAdminPost", ctrl.process.createAdminPost);
