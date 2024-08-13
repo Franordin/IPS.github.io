@@ -25,7 +25,7 @@ router.get("/sitemap_ips.xml", (req, res) => {
     res.sendFile(path.join(__filename, "../../public/sitemap_ips.xml"));
 });
 router.get("/sitemap_kndipsl.xml", (req, res) => {
-    res.sendFile(path.join(__filename, "../../public//sitemap_kndipsl.xml"));
+    res.sendFile(path.join(__filename, "../../public/sitemap_kndipsl.xml"));
 });
 
 router.post("/login", ctrl.process.login);
