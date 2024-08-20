@@ -6,10 +6,10 @@
 
 /* 유니크한 클래스 이름과 폰트 가중치 설정 */
 .noto-sans-kr-header {
-  font-family: "Noto Sans KR", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
@@ -40,7 +40,7 @@ html {
 body {
     color: #666666;
     font-size: 14px;
-    font-family:Noto Sans KR;
+    font-family: Noto Sans KR;
     line-height: 1.80857;
     font-weight: normal;
     overflow-x: hidden;
@@ -57,7 +57,12 @@ a {
     transition: all .3s ease-in-out;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     letter-spacing: 0;
     font-weight: normal;
     position: relative;
@@ -67,16 +72,36 @@ h1, h2, h3, h4, h5, h6 {
     color: #111111;
     margin: 0
 }
-h1 { font-size: 24px }
-h2 { font-size: 22px }
-h3 { font-size: 18px }
-h4 { font-size: 16px }
-h5 { font-size: 14px }
-h6 { font-size: 13px }
+
+h1 {
+    font-size: 24px
+}
+
+h2 {
+    font-size: 22px
+}
+
+h3 {
+    font-size: 18px
+}
+
+h4 {
+    font-size: 16px
+}
+
+h5 {
+    font-size: 14px
+}
+
+h6 {
+    font-size: 13px
+}
 
 hr {
-    margin-top: 0; /* Adjust this value as needed */
-    margin-bottom: 0; /* Adjust this value as needed */
+    margin-top: 0;
+    /* Adjust this value as needed */
+    margin-bottom: 0;
+    /* Adjust this value as needed */
 }
 
 *,
@@ -87,9 +112,14 @@ hr {
     box-sizing: border-box;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
     color: #212121;
-    text-decoration: none!important;
+    text-decoration: none !important;
     opacity: 1
 }
 
@@ -97,7 +127,9 @@ button:focus {
     outline: none;
 }
 
-ul, li, ol {
+ul,
+li,
+ol {
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -108,7 +140,7 @@ p {
     font-weight: 500;
     font-size: 18px;
     line-height: 30px;
-    color:black;
+    color: black;
 }
 
 a {
@@ -117,7 +149,8 @@ a {
     outline: none !important;
 }
 
-a, .btn {
+a,
+.btn {
     text-decoration: none !important;
     outline: none !important;
     -webkit-transition: all .3s ease-in-out;
@@ -183,20 +216,13 @@ button {
     padding-top: 4px;
     padding-bottom: 4px;
 }
+
 .logo-kgu {
     max-width: 200px;
     min-width: 150px;
     padding-top: 18px;
 }
-@media screen and (max-width: 993px) {
-    .logo-kgu {
-        display: none;
-    }
-    .logo {
-        min-width: 450;
-        margin-left: 10px;
-    }
-}
+
 .logo-footer {
     width: 100%;
     float: left;
@@ -209,26 +235,35 @@ button {
 .navbar {
     padding: 12px 29px;
 }
+
 .navbar-nav {
     width: 100%;
     display: flex;
     justify-content: center;
 }
+
 .navbar-expand-lg .nav-link {
     padding-right: 70px !important;
     padding-left: 70px !important;
     font-size: 30px;
     /* font-weight: bold; */
 }
+
 .navbar-light .navbar-nav .nav-link {
     color: #24292f;
     font-weight: 500;
     font-weight: bold;
 }
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
     color: #4f99e5;
 }
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
     color: #4f99e5;
 }
 
@@ -242,6 +277,7 @@ button {
     text-align: left;
     padding-left: 25px;
 }
+
 .text-default-head-center {
     width: 100%;
     float: left;
@@ -251,6 +287,7 @@ button {
     text-align: center;
     padding-bottom: 70px;
 }
+
 .text-default-head-sub {
     width: 100%;
     float: left;
@@ -262,6 +299,7 @@ button {
     padding-left: 35px;
     padding-bottom: 20px;
 }
+
 .text-default-body {
     float: left;
     font-size: 20px;
@@ -270,6 +308,7 @@ button {
     text-align: left;
     padding-left: 55px;
 }
+
 .text-default-body-center {
     float: center;
     font-size: 20px;
@@ -277,8 +316,9 @@ button {
     font-weight: 400;
     text-align: center;
 }
+
 .text_main_banner {
-    width: 200%;
+    width: 100%;
     float: center;
     font-size: 64px;
     color: #ffffff;
@@ -289,12 +329,14 @@ button {
     align-items: center;
     text-shadow: 0px 0px 10px darkblue;
 }
+
 @font-face {
     font-family: 'ChosunGs';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 .text_main_banner_kanji {
     font-family: 'ChosunGs';
     width: 200%;
@@ -308,6 +350,7 @@ button {
     align-items: center;
     text-shadow: 0px 0px 10px rgb(256, 0, 0);
 }
+
 .text_main_banner_sub {
     width: 100%;
     float: left;
@@ -317,7 +360,8 @@ button {
     margin-left: 0px;
     padding-top: 50px;
 }
-.text-greeting-director-name{
+
+.text-greeting-director-name {
     width: 100%;
     float: left;
     font-size: 50px;
@@ -328,11 +372,13 @@ button {
     padding-top: 140px;
     padding-left: 25px;
 }
+
 @media screen and (max-width: 993px) {
-    .text-greeting-director-name{
-       padding-top: 30px;
+    .text-greeting-director-name {
+        padding-top: 30px;
     }
 }
+
 .text-greeting-director-description {
     float: left;
     font-size: 20px;
@@ -341,6 +387,7 @@ button {
     text-align: left;
     padding-left: 35px;
 }
+
 .text_strategy_banner {
     width: 100%;
     float: center;
@@ -351,12 +398,14 @@ button {
     /* margin-top: 80px; */
     text-shadow: 0px 0px 10px darkblue;
 }
+
 .text_board_write {
     font-size: 20px;
-    color:#666666;
+    color: #666666;
     text-align: center;
     font-weight: bold;
 }
+
 .text-footer {
     color: #787878;
 }
@@ -366,6 +415,7 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 .image-default {
     width: 100%;
     float: center;
@@ -380,17 +430,22 @@ img {
     /* padding:15px; */
     border-radius: 20px;
 }
+
 .image-goal-container {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
 }
+
 .image-goal-container:hover .image-goal {
     filter: brightness(90%);
 }
+
 .image-goal-container:hover figcaption {
-    opacity: 1; /* Show caption on hover */
+    opacity: 1;
+    /* Show caption on hover */
 }
+
 figcaption {
     position: absolute;
     top: 0;
@@ -402,12 +457,15 @@ figcaption {
     align-items: center;
     text-align: center;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
-    opacity: 0; /* Initially hidden */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Dark semi-transparent background */
+    opacity: 0;
+    /* Initially hidden */
     transition: opacity 0.3s ease;
     font-size: 20px;
     padding: 15px;
 }
+
 .image-director {
     width: 100%;
     height: 100%;
@@ -421,6 +479,7 @@ figcaption {
     float: center;
     padding-bottom: 250px;
 }
+
 .section_main_notice {
     width: 100%;
     float: left;
@@ -428,8 +487,9 @@ figcaption {
     height: auto;
     padding-top: 70px;
     padding-bottom: 70px;
-    background-color:rgb(250, 250, 250);
+    background-color: rgb(250, 250, 250);
 }
+
 .section-default-banner {
     width: 100%;
     height: 500px;
@@ -438,6 +498,7 @@ figcaption {
     align-content: center;
     background-size: cover;
 }
+
 .section-default {
     width: 100%;
     float: left;
@@ -446,6 +507,12 @@ figcaption {
     padding-top: 120px;
     padding-bottom: 120px;
 }
+
+.section-def {
+    background-color: rgb(236, 236, 236);
+    height: 80px;
+}
+
 .section-partners {
     width: 100%;
     float: left;
@@ -457,10 +524,12 @@ figcaption {
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
 .section_board_write_edit {
     width: 80vw;
     margin: 100px auto;
 }
+
 .section-divide-line {
     width: 100%;
     float: left;
@@ -469,6 +538,7 @@ figcaption {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
 .section-footer {
     width: 100%;
     float: left;
@@ -480,23 +550,26 @@ figcaption {
 
 /* Partner Related */
 #slider {
-    overflow:hidden;
-    position:relative;
+    overflow: hidden;
+    position: relative;
     /* border:20px solid red; */
-    width:100%;
-    height:80px;
+    width: 100%;
+    height: 80px;
 }
+
 .image-box {
     width: 7625px;
-    height:100%;
-    display:flex;
-    flex-wrap:nowrap;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
     animation: bannermove 45s linear infinite;
 }
+
 @keyframes bannermove {
     0% {
         transform: translate(0, 0);
     }
+
     100% {
         transform: translate(-50%, 0);
     }
@@ -511,13 +584,15 @@ figcaption {
     justify-content: center;
     align-items: flex-start;
 }
+
 .circle li {
-    font-size:25px;
-    font-style:oblique;
-    color:#000000;
+    font-size: 25px;
+    font-style: oblique;
+    color: #000000;
     margin: 1rem 0;
     font-weight: bold;
 }
+
 .circle li:before {
     content: counter(list-counter);
     counter-increment: list-counter;
@@ -537,20 +612,26 @@ figcaption {
 
 /* Sub list styles */
 .sub-circle {
-    list-style-type: disc; /* 불릿 포인트로 변경 */
-    margin-left: 6rem; /* 들여쓰기 늘림 */
+    list-style-type: disc;
+    /* 불릿 포인트로 변경 */
+    margin-left: 6rem;
+    /* 들여쓰기 늘림 */
     margin-bottom: 2rem;
 }
+
 .sub-circle li {
     font-size: 20px;
     font-style: normal;
     color: #555;
 }
+
 .sub-circle li:before {
-    content: none; /* 숫자 대신 불릿 포인트를 사용하므로 content를 비웁니다 */
+    content: none;
+    /* 숫자 대신 불릿 포인트를 사용하므로 content를 비웁니다 */
 }
+
 .strategy_list_highlight {
-    color:rgb(189, 173, 0);
+    color: rgb(189, 173, 0);
 }
 
 /* login */
@@ -560,6 +641,7 @@ figcaption {
     float: center;
     background-color: rgb(40, 40, 40);
 }
+
 .login-container {
     background-color: #eeeeee;
     margin-top: 25%;
@@ -568,20 +650,24 @@ figcaption {
     width: 100%;
     text-align: center;
 }
+
 .input-container {
     margin-bottom: 30px;
 }
+
 .input-container label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
+
 .input-container input {
     width: calc(100% - 20px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .btn-login {
     width: 100%;
     padding: 10px;
@@ -594,15 +680,19 @@ figcaption {
     font-size: 16px;
     cursor: pointer;
 }
+
 /* Add this CSS to your style.css file or within a <style> tag in the HTML head */
 .password-container {
     position: relative;
     width: 100%;
 }
+
 .password-container input {
     width: 100%;
-    padding-right: 30px; /* To ensure the eye icon doesn't overlap the text */
+    padding-right: 30px;
+    /* To ensure the eye icon doesn't overlap the text */
 }
+
 .password-container i {
     position: absolute;
     right: 10px;
@@ -610,6 +700,7 @@ figcaption {
     transform: translateY(-50%);
     cursor: pointer;
 }
+
 .input-container input.form-control {
     width: 100%;
 }
@@ -622,37 +713,41 @@ figcaption {
 /* Etc */
 .v-line-footer {
     /* border-left: solid #787878; */
-    border-left: solid #787878;.image-container {
-        margin-bottom: 20px;
-    }
-    
-    .image-container img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background-color: #ccc;
-    }
-    
-    .input-container {
-        margin-bottom: 15px;
-    }
+    border-left: solid #787878;
     border-left-width: 1px;
     height: 60px;
     padding-right: 30px;
 }
+
+.image-container {
+    margin-bottom: 20px;
+}
+.image-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.input-container {
+    margin-bottom: 15px;
+}
+
 .map-content {
     width: 100%;
     margin: auto;
     margin-top: 100px;
 }
+
 .pagination {
     justify-content: center;
 }
-.blockquote{
+
+.blockquote {
     background: #f9f9f9;
     border-left: 10px solid #cccccc;
     margin-left: 55px;
-    quotes: "\201C""\201D""\2018""\2019";
+    quotes: "\201C" "\201D" "\2018" "\2019";
     font-weight: bold;
 }
 
@@ -730,7 +825,6 @@ figcaption {
     width: 100%;
 }
 
-
 .board_write .cont {
     border-bottom: 1px solid #000;
 }
@@ -746,7 +840,6 @@ figcaption {
     font-size: 18px;
 }
 
-
 .board_title {
     margin-bottom: 30px;
 }
@@ -760,21 +853,133 @@ figcaption {
     font-size: 1.4rem;
 }
 
-.board_view .info dl {
-    width: 50%;
-    padding: 0;
+.board_view {
+    width: 100%;
+    border-top: 2px solid #000;
 }
 
-.board_view .info dl:nth-child(-n+2) {
-    margin-bottom: 5px;
+.board_view .title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 2rem;
+}
+
+.board_view .info {
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+}
+
+.board_view .info dl {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.board_view .info dl:first-child {
+    padding-left: 0;
 }
 
 .board_view .info dl::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 13px;
+    background: #ddd;
+}
+
+.board_view .info dl:first-child::before {
     display: none;
 }
 
 .board_view .info dl dt,
 .board_view .info dl dd {
-    font-size: 1.2rem;
+    display: inline-block;
+    font-size: 1.4rem;
 }
 
+.board_view .info dl dd {
+    margin-left: 10px;
+    color: #777;
+}
+
+.board_view .cont {
+    padding: 15px;
+    border-bottom: 1px solid #000;
+    line-height: 160%;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 993px) {
+    .logo-kgu {
+        display: none;
+    }
+
+    .logo {
+        min-width: 450;
+        margin-left: 10px;
+    }
+
+    .text_main_banner {
+        font-size: 6vw;
+    }
+
+    .text_main_banner_kanji {
+        font-size: 6vw;
+    }
+
+    .text_main_banner_sub {
+        font-size: 4vw;
+    }
+
+    .section-main-banner {
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+
+    .section-default-banner {
+        width: 100%;
+        height: 300px;
+        padding-top: 128px;
+        padding-bottom: 128px;
+        align-content: center;
+        background-size: cover;
+    }
+
+    .section-def {
+        height: 1px;
+    }
+
+    .section-default {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .text-default-head-center {
+        font-size: 5vw;
+    }
+
+    .section-default {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .text-footer {
+        padding-left: 15px;
+    }
+
+    .v-line-footer {
+        visibility: hidden;
+    }
+
+    .logo-footer {
+        width: 100%;
+        float: left;
+        min-width: 250px;
+        max-width: 330px;
+        padding-left: 10px;
+    }
+}
