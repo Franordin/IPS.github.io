@@ -97,7 +97,7 @@
     </div>
     <!-- banner section end -->
 
-    <div class="section-def" style="background-color: rgb(236, 236, 236); height: 80px;"></div>
+    <div class="section-def"></div>
 
     <!-- goal section start -->
     <div class="section-default">
@@ -179,7 +179,9 @@
                                     <%= notice.id %>
                                 </td>
                                 <td scope="col" style="font-size: x-large;">
-                                    <%= notice.title %>
+                                    <a href="/viewPost?id=<%= notice.id %>&type=announce" style="text-decoration: none; color: inherit;">
+                                        <%= notice.title %>
+                                    </a>
                                 </td>
                                 <td scope="col" class="text-center datetime" style="font-size: x-large;">
                                     <%= notice.createdAt %>
@@ -209,7 +211,9 @@
                                     <%= document.id %>
                                 </td>
                                 <td scope="col" style="font-size: x-large;">
-                                    <%= document.title %>
+                                    <a href="/viewPost?id=<%= document.id %>&type=doc" style="text-decoration: none; color: inherit;">
+                                        <%= document.title %>
+                                    </a>
                                 </td>
                                 <td scope="col" class="text-center datetime" style="font-size: x-large;">
                                     <%= document.createdAt %>

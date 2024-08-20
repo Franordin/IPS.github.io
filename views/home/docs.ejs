@@ -118,7 +118,9 @@
                                     <%= document.id %>
                                 </td>
                                 <td scope="col">
-                                    <%= document.title %>
+                                    <a href="/viewPost?id=<%= document.id %>&type=doc" style="text-decoration: none; color: inherit;">
+                                        <%= document.title %>
+                                    </a>
                                 </td>
                                 <td scope="col" class="text-center">
                                     <%= document.writer %>

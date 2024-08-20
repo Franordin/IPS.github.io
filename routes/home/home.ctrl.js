@@ -25,6 +25,9 @@ const Notices = sequelize.define(
             type: DataTypes.INTEGER,
             defaultValue: 0,
         },
+        content: {
+            type: DataTypes.STRING,
+        }
     },
     {
         // Other model options go here
@@ -51,6 +54,9 @@ const Documents = sequelize.define(
             type: DataTypes.INTEGER,
             defaultValue: 0,
         },
+        content: {
+            type: DataTypes.STRING,
+        }
     },
     {
         // Other model options go here
@@ -137,8 +143,33 @@ const show = {
     write: (req, res) => {
         res.render("home/write");
     },
-    viewPost: (req, res) => {
-        res.render("home/post");
+    viewPost: async (req, res) => {
+        try {
+            const postId = req.query.id;  // URL 쿼리에서 id를 가져옴
+            const type = req.query.type;
+
+            if (type === "announce") {
+                const postContent = await Notices.findOne({
+                    where: { id: postId }  // 해당 id와 일치하는 게시글을 찾음
+                });
+                if (!postContent) {
+                    return res.status(404).send("Post not found");
+                }
+                res.render("home/post", { postContent });
+            }
+            if (type === "doc") {
+                const postContent = await Documents.findOne({
+                    where: { id: postId }  // 해당 id와 일치하는 게시글을 찾음
+                });
+                if (!postContent) {
+                    return res.status(404).send("Post not found");
+                }
+                res.render("home/post", { postContent });
+            }
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Server Error");
+        }
     },
 };
 
@@ -155,19 +186,22 @@ const process = {
         }
     },
     createAdminPost: async (req, res) => {
-        const { title, writer, board } = req.body;
+        const { title, writer, board, cont } = req.body;
+        
+        const formattedCont = cont.replace(/\n/g, '<br>');
+
         try {
             if (board === "board1") {
                 // 공지 사항 게시판에 게시물 생성
-                await Notices.create({ title: title, writer: writer});
+                await Notices.create({ title: title, writer: writer, content: formattedCont });
                 res.redirect('/announcement');
             } else if (board === "board2") {
                 // 학술 정보 게시판에 게시물 생성
-                await Notices.create({ title: title, writer: writer});
+                await Notices.create({ title: title, writer: writer, content: formattedCont });
                 res.redirect('/announcement'); // 실제 학술 정보 게시판 페이지로 리다이렉트
             } else if (board === "board3") {
                 // 자료실 게시판에 게시물 생성
-                await Documents.create({ title: title, writer: writer});
+                await Documents.create({ title: title, writer: writer, content: formattedCont });
                 res.redirect('/docs');
             } else {
                 res.status(400).send("Invalid board selection");

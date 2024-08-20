@@ -101,7 +101,7 @@
     <div class="section_board_write_edit">
         <div class="board_editor">
             <div class="board_write">
-                <form action="/createAdminPost" method="post">
+                <form action="/createAdminPost" method="post" onsubmit="return validateForm()">
                     <div class="title">
                         <div class="col-md-2">
                             <div class="text_board_write"> 제목 </div>
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="cont">
-                        <textarea name="content" placeholder="내용 입력"></textarea>
+                        <textarea name="cont" id="cont" placeholder="내용 입력"></textarea>
                     </div>
                     <div class="bt_wrap">
                         <button type="submit" class="btn on">등록</button>
@@ -158,11 +158,28 @@
     <!-- footer section end -->
 
     <script>
+        function validateForm() {
+            var title = document.getElementById("title").value.trim();
+            var writer = document.getElementById("writer").value.trim();
+            
+            if (title === "") {
+                alert("제목을 입력해주세요.");
+                return false;  // 폼 제출을 막음
+            }
+            if (writer === "") {
+                alert("작성자를 입력해주세요.");
+                return false;  // 폼 제출을 막음
+            }
+            return true;  // 폼 제출 허용
+        }
+    
         function confirmExit() {
-            return confirm("진행 중이던 내용이 삭제됩니다. 진행하시겠습니까?");
+            return confirm("정말 취소하시겠습니까?");
         }
     </script>
 
 </body>
+
+</html>
 
 </html>

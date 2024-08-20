@@ -81,20 +81,26 @@
   <div class="section_board_write_edit">
     <div class="board_view">
       <div class="title">
-        글 제목이 들어갑니다.
+        <%= postContent.title %>
       </div>
       <div class="info">
         <dl>
           <dt>번호</dt>
-          <dd>1</dd>
+          <dd>
+            <%= postContent.id %>
+          </dd>
         </dl>
         <dl>
           <dt>글쓴이</dt>
-          <dd>김이름</dd>
+          <dd>
+            <%= postContent.writer %>
+          </dd>
         </dl>
         <dl>
           <dt>작성일</dt>
-          <dd>2021.1.16</dd>
+          <dd class="datetime">
+            <%= postContent.createdAt %>
+          </dd>
         </dl>
         <dl>
           <dt>조회</dt>
@@ -102,18 +108,11 @@
         </dl>
       </div>
       <div class="cont">
-        글 내용이 들어갑니다<br>
-        글 내용이 들어갑니다<br>
-        글 내용이 들어갑니다<br>
-        글 내용이 들어갑니다<br>
-        글 내용이 들어갑니다<br>
-        글 내용이 들어갑니다<br>
-        글 내용이 들어갑니다<br>
-        글 내용이 들어갑니다
+        <%- postContent.content %>
       </div>
     </div>
     <div class="bt_wrap">
-      <a href="list.html" class="on">목록</a>
+      <a href="/announcement" class="on">목록</a>
       <a href="edit.html">수정</a>
     </div>
   </div>
@@ -155,6 +154,26 @@
       $(".fancybox").fancybox({
         openEffect: "none",
         closeEffect: "none"
+      });
+      // Date and time format conversion functions
+      function formatDateTime(dateString) {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        // const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        // return `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
+        return `${year}.${month}.${day} ${hours}:${minutes}`;
+      }
+
+      // Finds all date elements in a table and changes their format
+      $('dd.datetime').each(function () {
+        const originalDate = $(this).text();
+        const formattedDate = formatDateTime(originalDate);
+        $(this).text(formattedDate);
       });
     });
   </script>
