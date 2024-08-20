@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>NDIPSL</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <!-- owl stylesheets -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+    media="screen">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col mx-auto logo text-center">
+        <a href="/" action="/home">
+          <img src="images/logo.png" class="logo" alt="Logo">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <hr style="width: 100%;">
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/greeting" action="/greeting">인사말</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/vision" action="/vision">비전과 목표</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ips" action="/ips">연구 분야 / IPS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/academic" action="/academic">학술 정보</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/announcement" action="/announcement">공지 사항</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/docs" action="/docs">자료실</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- header section end -->
+
+  <div class="section_board_write_title" style="padding-left: 10%; padding-top: 100px; padding-bottom: 15px;">
+    <div class="text-default-head" style="margin: auto"> 공지사항 </div>
+  </div>
+
+  <div class="section_board_write_edit">
+    <div class="board_view">
+      <div class="title">
+        <%= postContent.title %>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>번호</dt>
+          <dd>
+            <%= postContent.id %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>글쓴이</dt>
+          <dd>
+            <%= postContent.writer %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>작성일</dt>
+          <dd class="datetime">
+            <%= postContent.createdAt %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>조회</dt>
+          <dd>33</dd>
+        </dl>
+      </div>
+      <div class="cont">
+        <%- postContent.content %>
+      </div>
+    </div>
+    <div class="bt_wrap">
+      <a href="/announcement" class="on">목록</a>
+      <a href="edit.html">수정</a>
+    </div>
+  </div>
+
+  <!-- footer section start -->
+  <div class="section-footer">
+    <div class="container">
+      <div class="row">
+        <div class="logo-footer"><img src="images/logo-grayscale.png" alt="logo-grayscale"></div>
+        <div class="v-line-footer"></div>
+        <div class="text-footer"> 경기도 수원시 영통구 광교산로 154-42(이의동) 교수연구동 512호 <br> Developed by Hyeontae Son &nbsp;
+          &nbsp;
+          <% if (userId) { %>
+            <a class="text-footer" href="/logout"> [로그아웃] </a>
+            <!-- <%= userId %> -->
+            <% } else { %>
+              <a class="text-footer" href="/login"> [관리자 로그인] </a>
+              <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer section end -->
+
+  <!-- Javascript files-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/plugin.js"></script>
+  <!-- sidebar -->
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/custom.js"></script>
+  <!-- javascript -->
+  <script src="js/owl.carousel.js"></script>
+  <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+      });
+      // Date and time format conversion functions
+      function formatDateTime(dateString) {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        // const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        // return `${year}.${month}.${day} ${hours}:${minutes}:${seconds}`;
+        return `${year}.${month}.${day} ${hours}:${minutes}`;
+      }
+
+      // Finds all date elements in a table and changes their format
+      $('dd.datetime').each(function () {
+        const originalDate = $(this).text();
+        const formattedDate = formatDateTime(originalDate);
+        $(this).text(formattedDate);
+      });
+    });
+  </script>
+  <!-- Javascript files end-->
+
+</body>
+
+</html>

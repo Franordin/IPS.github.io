@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- site metas -->
+    <title>NDIPSL</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto logo text-center">
+                <a href="/" action="/home">
+                    <img src="/images/logo.png" class="logo" alt="Logo">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- login section start -->
+    <div class="section-login">
+        <div class="container">
+            <div class="row">
+                <div class="login-container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="image-default"><img src="/images/favicon.png" alt="Logo"></div>
+                                <div class="text-default-head-center">Login</div>
+                            </div>
+                            <div class="col-md-8" style="padding-left: 25px; padding-right: 25px;">
+                                <form id="login-form">
+                                    <div class="input-container">
+                                        <label for="username">ID</label>
+                                        <input type="text" id="id" name="username" class="form-control">
+                                    </div>
+                                    <div class="input-container">
+                                        <label for="password">PW</label>
+                                        <div class="password-container">
+                                            <input type="password" id="psword" name="password" class="form-control">
+                                            <i class="fa fa-eye" id="toggle-password"></i>
+                                        </div>
+                                    </div>
+                                    <button class="btn-login" type="submit">Enter</button>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a style="display: block; text-align: left;">Forgot? <br> Contact to "lmstk@kyonggi.ac.kr"</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="#" id="change-password-link" style="display: block; text-align: right;">Change Password</a>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="change-password-form" style="display: none;">
+                                    <div class="input-container">
+                                        <label for="old-password">Old Password</label>
+                                        <div class="password-container">
+                                            <input type="password" id="old-password" name="old-password" class="form-control">
+                                            <i class="fa fa-eye" id="toggle-old-password"></i>
+                                        </div>
+                                    </div>
+                                    <div class="input-container">
+                                        <label for="new-password">New Password</label>
+                                        <div class="password-container">
+                                            <input type="password" id="new-password" name="new-password" class="form-control">
+                                            <i class="fa fa-eye" id="toggle-new-password"></i>
+                                        </div>
+                                    </div>
+                                    <div class="input-container">
+                                        <label for="confirm-password">Confirm Password</label>
+                                        <div class="password-container">
+                                            <input type="password" id="confirm-password" name="confirm-password" class="form-control">
+                                            <i class="fa fa-eye" id="toggle-confirm-password"></i>
+                                        </div>
+                                    </div>
+                                    <button class="btn-login" type="submit">Change Password</button>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="#" id="back-to-login-link" style="display: block; text-align: center;">Back to Login</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login section end -->
+
+    <!-- Javascript files-->
+    <script src="/js/home/login.js" defer></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#change-password-link").click(function (e) {
+                e.preventDefault();
+                $("#login-form").hide();
+                $("#change-password-form").show();
+            });
+
+            $("#back-to-login-link").click(function (e) {
+                e.preventDefault();
+                $("#change-password-form").hide();
+                $("#login-form").show();
+            });
+
+            $(".password-container i").on("click", function () {
+                const input = $(this).siblings("input");
+                const type = input.attr("type") === "password" ? "text" : "password";
+                input.attr("type", type);
+                $(this).toggleClass("fa-eye fa-eye-slash");
+            });
+        });
+    </script>
+</body>
+
+</html>
