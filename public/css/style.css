@@ -243,8 +243,8 @@ button {
 }
 
 .navbar-expand-lg .nav-link {
-    padding-right: 70px !important;
-    padding-left: 70px !important;
+    padding-right: 50px !important;
+    padding-left: 50px !important;
     font-size: 30px;
     /* font-weight: bold; */
 }
@@ -286,6 +286,7 @@ button {
     font-weight: bold;
     text-align: center;
     padding-bottom: 70px;
+    word-break: keep-all;
 }
 
 .text-default-head-sub {
@@ -307,6 +308,7 @@ button {
     font-weight: 500;
     text-align: left;
     padding-left: 55px;
+    padding-right: 40px;
 }
 
 .text-default-body-center {
@@ -315,6 +317,7 @@ button {
     color: #000000;
     font-weight: 400;
     text-align: center;
+    word-break: keep-all;
 }
 
 .text_main_banner {
@@ -326,7 +329,8 @@ button {
     text-transform: uppercase;
     line-height: 50px;
     padding-top: 100px;
-    align-items: center;
+    text-align: center;
+    word-break: keep-all;
     text-shadow: 0px 0px 10px darkblue;
 }
 
@@ -355,10 +359,12 @@ button {
     width: 100%;
     float: left;
     font-size: 34px;
-    color: #000000;
+    color:#ffe812;
+    text-shadow: 0px 0px 10px rgb(59, 29, 0);
     font-weight: 500;
-    margin-left: 0px;
     padding-top: 50px;
+    text-align: center;
+    word-break: keep-all;
 }
 
 .text-greeting-director-name {
@@ -371,6 +377,7 @@ button {
     text-align: left;
     padding-top: 140px;
     padding-left: 25px;
+    word-break: keep-all;
 }
 
 @media screen and (max-width: 993px) {
@@ -386,6 +393,7 @@ button {
     font-weight: 500;
     text-align: left;
     padding-left: 35px;
+    padding-right: 35px;
 }
 
 .text_strategy_banner {
@@ -478,6 +486,10 @@ figcaption {
     width: 100%;
     float: center;
     padding-bottom: 250px;
+    background-color: rgb(236, 236, 236);
+    background-size: contain;
+    background-position:center;
+    background-repeat: no-repeat;
 }
 
 .section_main_notice {
@@ -583,6 +595,7 @@ figcaption {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    word-break: keep-all;
 }
 
 .circle li {
@@ -591,6 +604,7 @@ figcaption {
     color: #000000;
     margin: 1rem 0;
     font-weight: bold;
+    word-break: keep-all;
 }
 
 .circle li:before {
@@ -598,7 +612,7 @@ figcaption {
     counter-increment: list-counter;
     width: 4rem;
     height: 4rem;
-    padding: 0.4rem;
+    padding: 0.4Frem;
     margin-right: 2rem;
     border-radius: 50%;
     border: 0.2rem solid #d20000;
@@ -608,6 +622,7 @@ figcaption {
     text-align: center;
     display: inline-block;
     font-size: 1.5rem;
+    word-break: keep-all;
 }
 
 /* Sub list styles */
@@ -617,12 +632,14 @@ figcaption {
     margin-left: 6rem;
     /* 들여쓰기 늘림 */
     margin-bottom: 2rem;
+    word-break: keep-all;
 }
 
 .sub-circle li {
     font-size: 20px;
     font-style: normal;
     color: #555;
+    word-break: keep-all;
 }
 
 .sub-circle li:before {
@@ -913,7 +930,7 @@ figcaption {
     font-size: 1.4rem;
 }
 
-@media screen and (max-width: 993px) {
+@media screen and (max-width: 995px) {
     .logo-kgu {
         display: none;
     }
@@ -923,21 +940,30 @@ figcaption {
         margin-left: 10px;
     }
 
+    .navbar-expand-lg .nav-link {
+        padding-right: 30px !important;
+        padding-left: 30px !important;
+        font-size: 30px;
+        /* font-weight: bold; */
+    }
+
     .text_main_banner {
-        font-size: 6vw;
+        font-size: 10vw;
     }
 
     .text_main_banner_kanji {
-        font-size: 6vw;
+        font-size: 10vw;
     }
 
     .text_main_banner_sub {
-        font-size: 4vw;
+        font-size: 7vw;
     }
 
     .section-main-banner {
+        background-image: url('/images/main_banner_mobile.png') !important;
         padding-bottom: 50px;
         padding-top: 50px;
+        height: 550px;
     }
 
     .section-default-banner {
@@ -959,7 +985,7 @@ figcaption {
     }
 
     .text-default-head-center {
-        font-size: 5vw;
+        font-size: 6vw;
     }
 
     .section-default {
@@ -981,5 +1007,9 @@ figcaption {
         min-width: 250px;
         max-width: 330px;
         padding-left: 10px;
+    }
+
+    .sub-circle {
+        margin-left: 0rem;
     }
 }

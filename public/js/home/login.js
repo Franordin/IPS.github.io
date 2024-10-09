@@ -6,8 +6,8 @@ loginBtn.addEventListener("click", login);
 
 function login() {
     const req = {
-        id: id.value,
-        psword: psword.value,
+        id: id.value.trim(),
+        psword: psword.value.trim(),
     };
 
     fetch("/login", {
