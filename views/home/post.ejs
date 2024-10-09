@@ -74,9 +74,22 @@
   </nav>
   <!-- header section end -->
 
-  <div class="section_board_write_title" style="padding-left: 10%; padding-top: 100px; padding-bottom: 15px;">
-    <div class="text-default-head" style="margin: auto"> 공지사항 </div>
-  </div>
+  <!-- <div class="section_board_write_title" style="padding-left: 10%; padding-top: 100px; padding-bottom: 15px;"> -->
+    <!-- <div class="text-default-head" style="margin: auto"> 공지사항 </div> -->
+    <% if (type === "announce") { %>
+      <div class="section-default-banner" style="background-image: url('/images/banner_notice.jpg');">
+        <div class="col-md-12">
+          <h1 class="text_strategy_banner"> 공지 사항 </h1>
+        </div>
+      </div>
+    <% } else if (type === "doc") { %>
+      <div class="section-default-banner" style="background-image: url('/images/banner_docs.jpg');">
+        <div class="col-md-12">
+          <h1 class="text_strategy_banner"> 자료실 </h1>
+        </div>
+      </div>
+    <% } %>
+  <!-- </div> -->
 
   <div class="section_board_write_edit">
     <div class="board_view">
@@ -104,7 +117,9 @@
         </dl>
         <dl>
           <dt>조회</dt>
-          <dd>33</dd>
+          <dd>
+            <%= postContent.views %>
+          </dd>
         </dl>
       </div>
       <div class="cont">
@@ -112,7 +127,11 @@
       </div>
     </div>
     <div class="bt_wrap">
-      <a href="/announcement" class="on">목록</a>
+      <% if (type === "announce") { %>
+        <a href="/announcement" class="on">목록</a>
+    <% } else if (type === "doc") { %>
+        <a href="/docs" class="on">목록</a>
+    <% } %>
       <a href="edit.html">수정</a>
     </div>
   </div>
@@ -155,6 +174,7 @@
         openEffect: "none",
         closeEffect: "none"
       });
+
       // Date and time format conversion functions
       function formatDateTime(dateString) {
         const date = new Date(dateString);

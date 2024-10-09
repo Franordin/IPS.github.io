@@ -67,6 +67,8 @@ const Documents = sequelize.define(
     await Documents.sync();
 })();
 
+const lastRequestTime = {}; // 추가
+
 const show = {
     home: async (req, res) => {
         try {
@@ -148,6 +150,8 @@ const show = {
             const postId = req.query.id;  // URL 쿼리에서 id를 가져옴
             const type = req.query.type;
 
+            const now = Date.now();
+
             if (type === "announce") {
                 const postContent = await Notices.findOne({
                     where: { id: postId }  // 해당 id와 일치하는 게시글을 찾음
@@ -155,17 +159,28 @@ const show = {
                 if (!postContent) {
                     return res.status(404).send("Post not found");
                 }
-                res.render("home/post", { postContent });
+                if (!(lastRequestTime[postId] && now - lastRequestTime[postId] < 1000)) { // 1초 안에 두 번 요청할 경우
+                    await postContent.increment('views', { by: 1 });
+                }
+                res.render("home/post", { postContent, type });
             }
-            if (type === "doc") {
+            else if (type === "doc") {
                 const postContent = await Documents.findOne({
                     where: { id: postId }  // 해당 id와 일치하는 게시글을 찾음
                 });
                 if (!postContent) {
                     return res.status(404).send("Post not found");
                 }
-                res.render("home/post", { postContent });
+
+                if (!(lastRequestTime[postId] && now - lastRequestTime[postId] < 1000)) { // 1초 안에 두 번 요청할 경우
+                    await postContent.increment('views', { by: 1 });
+                }
+
+                res.render("home/post", { postContent, type });
             }
+
+            lastRequestTime[postId] = now; // 현재 시간을 저장
+
         } catch (error) {
             console.error(error);
             res.status(500).send("Server Error");
