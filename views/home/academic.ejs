@@ -159,43 +159,46 @@
     <div class="section-default" style="padding-top: 20px;">
         <div class="container">
             <div class="row">
+                <% if (userId) { %>
+                    <button class="btn-login" onclick="window.location.href='/write';" style="width: 80px; background-color: #4f99e5;">글 작성</button>
+                <% } %>
+
                 <table class="table table-hover">
+                    <colgroup>
+                        <col width="11%" />
+                        <col width="38%" />
+                        <col width="15%" />
+                        <col width="25%" />
+                        <col width="11%" />
+                    </colgroup>
                     <thead>
                         <tr>
-                            <th scope="col" class="text-center">번호</th>
-                            <th scope="col" class="text-center">제목</th>
-                            <th scope="col" class="text-center">작성자</th>
-                            <th scope="col" class="text-center">날짜</th>
-                            <th scope="col" class="text-center">조회 수</th>
+                            <th scope="col" class="text-center" style="font-size: medium;">번호</th>
+                            <th scope="col" class="text-center" style="font-size: medium;">제목</th>
+                            <th scope="col" class="text-center" style="font-size: medium;">작성자</th>
+                            <th scope="col" class="text-center" style="font-size: medium;">날짜</th>
+                            <th scope="col" class="text-center" style="font-size: medium;">조회 수</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <% for (academic of academics) { %>
                         <tr>
-                            <td scope="col" class="text-center">3</td>
-                            <td>현재 공지사항을 점검 중 입니다.</td>
-                            <td scope="col" class="text-center">개발자</td>
-                            <td scope="col" class="text-center">2024.06.22 04:53</td>
-                            <td scope="col" class="text-center">0</td>
+                            <td scope="col" class="text-center"><%= academic.id %></td>
+                            <td scope="col">
+                                <a href="/viewPost?id=<%= academic.id %>&type=academic" style="text-decoration: none; color: inherit;">
+                                    <%= academic.title %>
+                                </a>
+                            </td>
+                            <td scope="col" class="text-center"><%= academic.writer %></td>
+                            <td scope="col" class="text-center datetime"><%= academic.updatedAt %></td>
+                            <td scope="col" class="text-center"><%= academic.views %></td>
                         </tr>
-                        <tr>
-                            <td scope="col" class="text-center">2</td>
-                            <td>현재 공지사항을 점검 중 입니다.</td>
-                            <td scope="col" class="text-center">개발자</td>
-                            <td scope="col" class="text-center">2024.06.22 04:52</td>
-                            <td scope="col" class="text-center">0</td>
-                        </tr>
-                        <tr>
-                            <td scope="col" class="text-center">1</td>
-                            <td>현재 공지사항을 점검 중 입니다.</td>
-                            <td scope="col" class="text-center">개발자</td>
-                            <td scope="col" class="text-center">2024.06.22 04:49</td>
-                            <td scope="col" class="text-center">0</td>
-                        </tr>
+                        <% } %>
                     </tbody>
                 </table>
                 <div class="section-divide-line">
-                    <div class="container">
-                        <hr style="width: 100%; border: 1px solid darkgrey;">
+                    <div class="container" style="padding-top: 10px;">
+                        <hr style="width: 100%; border: 0; border-top: 2px solid #4f99e5;">
                     </div>
                 </div>
 
@@ -261,6 +264,24 @@
             $(".fancybox").fancybox({
                 openEffect: "none",
                 closeEffect: "none"
+            });
+            // Date and time format conversion functions
+            function formatDateTime(dateString) {
+                const date = new Date(dateString);
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+
+                return `${year}.${month}.${day} ${hours}:${minutes}`;
+            }
+
+            // Finds all date elements in a table and changes their format
+            $('td.datetime').each(function () {
+                const originalDate = $(this).text();
+                const formattedDate = formatDateTime(originalDate);
+                $(this).text(formattedDate);
             });
         });
     </script>

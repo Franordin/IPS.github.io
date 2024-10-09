@@ -17,6 +17,7 @@ router.get("/announcement", ctrl.show.announcement);
 router.get("/docs", ctrl.show.docs);
 router.get("/write", ctrl.show.write);
 router.get("/viewPost", ctrl.show.viewPost);
+router.get("/editPost", ctrl.show.editPost);
 
 router.get("/robots.txt", (req, res) => {
     res.sendFile(path.join(__filename, "../../public/robots.txt"));
@@ -30,5 +31,7 @@ router.get("/sitemap_kndipsl.xml", (req, res) => {
 
 router.post("/login", ctrl.process.login);
 router.post("/createAdminPost", ctrl.process.createAdminPost);
+router.post("/editAdminPost", ctrl.process.editAdminPost);
+router.post("/deleteAdminPost", ctrl.process.deleteAdminPost);
 
 module.exports = router;

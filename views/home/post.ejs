@@ -112,7 +112,7 @@
         <dl>
           <dt>작성일</dt>
           <dd class="datetime">
-            <%= postContent.createdAt %>
+            <%= postContent.updatedAt %>
           </dd>
         </dl>
         <dl>
@@ -127,12 +127,19 @@
       </div>
     </div>
     <div class="bt_wrap">
-      <% if (type === "announce") { %>
+      <% if (userId) { %>
+      <a href="/editPost?id=<%= postContent.id %>&type=<%= type %>">수정</a>
+      <a href="javascript:void(0)" onclick="deletePost('<%= postContent.id %>', '<%= type %>')">삭제</a>
+      <% } %>
+      <% if (type === "academic") { %>
+        <a href="/academic" class="on">목록</a>
+      <% } else if (type === "announce") { %>
         <a href="/announcement" class="on">목록</a>
-    <% } else if (type === "doc") { %>
+      <% } else if (type === "doc") { %>
         <a href="/docs" class="on">목록</a>
-    <% } %>
-      <a href="edit.html">수정</a>
+      <% } else { %>
+        <a href="/" class="on">목록</a>
+      <% } %>
     </div>
   </div>
 
@@ -147,9 +154,9 @@
           <% if (userId) { %>
             <a class="text-footer" href="/logout"> [로그아웃] </a>
             <!-- <%= userId %> -->
-            <% } else { %>
-              <a class="text-footer" href="/login"> [관리자 로그인] </a>
-              <% } %>
+          <% } else { %>
+            <a class="text-footer" href="/login"> [관리자 로그인] </a>
+          <% } %>
         </div>
       </div>
     </div>
@@ -168,6 +175,27 @@
   <!-- javascript -->
   <script src="js/owl.carousel.js"></script>
   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  
+  <script>
+    function deletePost(postId, type) {
+      if (confirm('정말로 삭제하시겠습니까?')) {
+        fetch('/deleteAdminPost', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ postId: postId, type: type })
+        }).then(response => {
+          if (response.redirected) {
+            window.location.href = response.url;
+          }
+          else {
+            alert('삭제에 실패했습니다.');
+          }
+        }).catch(error => {
+          console.error('Error:', error);
+        });
+      }
+    }
+  </script>
   <script>
     $(document).ready(function () {
       $(".fancybox").fancybox({
