@@ -1,0 +1,18 @@
+1. Install Node.js
+
+2. set NPM (Node Package Manager)
+	> npm init -y
+
+3. The following package installation is needed.
+	1. ejs
+	2. express
+	3. express-session
+	4. sequelize
+	5. sqlite3
+	6. serve-favicon
+	7. body-parser
+	
+	> npm install ejs express express-session sequelize sqlite3 serve-favicon body-parser -s
+
+4. to start
+	> npm start
