@@ -1,4 +1,5 @@
 1. Install Node.js
+   [ Tested with version 20.15.0
 
 2. set NPM (Node Package Manager)
 	> npm init -y
