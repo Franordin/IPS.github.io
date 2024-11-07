@@ -727,6 +727,23 @@ figcaption {
     border-top: 2px solid #000;
 }
 
+/* history */
+.history h2 {position: relative; font-size: 40px; color: #000; line-height: 1;}
+.history h2:before {
+  content:""; position: absolute;
+  left:-49px; top:50%; transform: translateY(-50%);
+  width: 20px; height: 20px; border-radius: 100%;
+  background:#fff; border: 3px solid #ff0000;
+  box-sizing: border-box;}
+
+.history div {position: relative; padding: 0 0 0 48px;}
+.history div:before { content:""; position:absolute; left:8px; top:0;
+        width: 2px; height:100%; background:#ddd;}
+.history div:first-child:before { top:10px; height:calc(100% - 10px);}
+
+.history ol { padding: 20px 0 74px; }
+.history li {font-size: 22px; color:#000; line-height: 29px;  }
+
 /* Etc */
 .v-line-footer {
     /* border-left: solid #787878; */
